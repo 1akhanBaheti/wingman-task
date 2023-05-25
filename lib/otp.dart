@@ -29,6 +29,7 @@ class _EnterOtpState extends ConsumerState<EnterOtp> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
+            color: Colors.white,
           padding: const EdgeInsets.all(15),
           margin: EdgeInsets.only(top: MediaQuery.of(context).viewInsets.top),
           child: Column(

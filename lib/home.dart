@@ -15,7 +15,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         body: Container(
+          color: Colors.white,
       padding: const EdgeInsets.only(left: 15, right: 15),
       margin: EdgeInsets.only(top: MediaQuery.of(context).viewInsets.top),
       child: Column(

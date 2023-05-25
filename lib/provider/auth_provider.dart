@@ -31,6 +31,8 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
       }
     } on HttpException catch (e) {
+      sendOTPState = StateEnum.error;
+      notifyListeners();
       log(e.message);
     }
   }
@@ -55,7 +57,6 @@ class AuthProvider extends ChangeNotifier {
 
         name = 'WINGMAN';
         prefs.setString('name', name);
-        
 
         verifyOTPState = StateEnum.success;
         notifyListeners();
@@ -67,10 +68,14 @@ class AuthProvider extends ChangeNotifier {
       return false;
     } on HttpException catch (e) {
       //  log(e.);
+      verifyOTPState = StateEnum.error;
+      notifyListeners();
+
     }
   }
 
-  Future updateProfile({required String userName, required String email}) async {
+  Future updateProfile(
+      {required String userName, required String email}) async {
     profileState = StateEnum.loading;
     notifyListeners();
 
@@ -98,6 +103,8 @@ class AuthProvider extends ChangeNotifier {
       }
     } on HttpException catch (e) {
       log(e.message);
+      profileState = StateEnum.error;
+      notifyListeners();
     }
   }
 }

@@ -27,6 +27,7 @@ class _SignInState extends ConsumerState<SignIn> {
           child: Form(
             key: formKey,
             child: Container(
+              color: Colors.white,
               padding: const EdgeInsets.all(15),
               margin:
                   EdgeInsets.only(top: MediaQuery.of(context).viewInsets.top),
